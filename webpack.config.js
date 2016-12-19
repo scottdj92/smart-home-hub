@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/app');
@@ -12,35 +12,32 @@ var config = {
         app: APP_DIR + '/index.jsx'
     },
     output: {
-        path: BUILD_DIR,
+        path: 'dist',
         filename: 'bundle.js'
     },
     plugins: [
-        new ExtractTextPlugin('bundle.css'),
+        new HtmlWebpackPlugin({
+            title: 'Smart Home Hub'
+        })
     ],
     resolve: {
-        modulesDirectories: ['node_modules'],
-        extensions: ['', '.css', '.js', '.jsx', '.scss']
+        modules: ['node_modules'],
+        extensions: ['.css', '.js', '.jsx', '.scss']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(js|jsx)$/,
                 include: APP_DIR,
-                loaders: ['react-hot', 'babel']
+                use: ['react-hot-loader', 'babel-loader']
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass')
-            },
-            {
-                test: /\.json$/,
-                exclude: [/node_modules/],
-                loader: 'json-loader?name=assets/[name].[ext]'
+                use: ['css-loader', 'sass-loader']
             }
         ]
     }
