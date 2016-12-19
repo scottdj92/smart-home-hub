@@ -7,7 +7,7 @@
   "author": "Scott Jones <scottdj92@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --hot --colors",
+    "dev": "webpack-dev-server --hot --colors --inline",
     "bundle": "webpack -d --show-error-details",
     "build": "webpack -p --progress"
   },
@@ -19,7 +19,6 @@
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
-    "json-loader": "^0.5.4",
     "milligram-scss": "^1.2.0",
     "node-sass": "^4.1.0",
     "react": "^15.4.1",

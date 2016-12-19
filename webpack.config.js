@@ -1,24 +1,28 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-var BUILD_DIR = path.resolve(__dirname, 'dist');
-var APP_DIR = path.resolve(__dirname, 'src/app');
-var ASSET_DIR = path.resolve(__dirname, 'dist/assets');
+const PATHS = {
+    app: path.resolve(__dirname, 'src'),
+    build: path.resolve(__dirname, 'dist'),
+    assets: path.resolve(__dirname, 'dist/assets')
+};
 
-var config = {
-    context: __dirname + '/src',
+const config = {
+    context: PATHS.app,
     entry: {
-        app: APP_DIR + '/index.jsx'
+        app: PATHS.app + '/index.jsx'
     },
     output: {
-        path: 'dist',
+        path: PATHS.build,
         filename: 'bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Smart Home Hub'
-        })
+            template: 'index.html'
+        }),
+        new ExtractTextWebpackPlugin('bundle.css')
     ],
     resolve: {
         modules: ['node_modules'],
@@ -28,16 +32,22 @@ var config = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                include: APP_DIR,
+                include: PATHS.app,
                 use: ['react-hot-loader', 'babel-loader']
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ExtractTextWebpackPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader'
+                })
             },
             {
                 test: /\.scss$/,
-                use: ['css-loader', 'sass-loader']
+                use: ExtractTextWebpackPlugin.extract({
+                    fallbackLoader: 'css-loader',
+                    loader: 'sass-loader'
+                })
             }
         ]
     }
