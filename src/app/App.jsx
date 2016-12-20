@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Nav from './Nav/Nav';
 
-// import './_main.scss';
+import './_main.scss';
 
 class App extends React.Component {
     render () {

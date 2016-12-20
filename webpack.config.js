@@ -44,13 +44,20 @@ const config = {
                     loader: "css-loader"
                 })
             },
+            // {
+            //     test: /\.scss$/,
+            //     use: ExtractTextWebpackPlugin.extract({
+            //         fallbackLoader: "style-loader",
+            //         loader: "css-loader!sass-loader?sourceMap"
+            //     })
+            // },
             {
                 test: /\.scss$/,
-                use: ExtractTextWebpackPlugin.extract({
-                    fallbackLoader: "style-loader",
-                    loader: ["css-loader", "sass-loader"]
-                })
-            },
+                use: 'sass-loader',
+                query: {
+                    sourceMaps: true
+                }
+            }
         ]
     }
 };
