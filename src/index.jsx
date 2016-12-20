@@ -1,18 +1,21 @@
+import { Router, Route, hashHistory } from 'react-router';
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-import Nav from './app/Nav/Nav';
+import App from './app/App';
+import Devices from './app/Devices/Devices';
+import ComponentStatus from './app/Connections/Connections';
 
-// import './_main.scss';
-
-class App extends React.Component {
+class Main extends React.Component {
     render () {
         return (
-            <div className='container'>
-                <Nav/>
-            </div>
+            <Router history={hashHistory}>
+                <Route path='/' component={App}/>
+                <Route path='/devices' component={Devices}/>
+                <Route path='/connections' component={ComponentStatus}/>
+            </Router>
         );
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<Main/>, document.getElementById('main'));
