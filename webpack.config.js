@@ -22,7 +22,9 @@ const config = {
         new HtmlWebpackPlugin({
             template: 'index.html'
         }),
-        new ExtractTextWebpackPlugin('bundle.css')
+        new ExtractTextWebpackPlugin({
+            filename: 'bundle.css'
+        })
     ],
     resolve: {
         modules: ['node_modules'],
@@ -38,17 +40,17 @@ const config = {
             {
                 test: /\.css$/,
                 use: ExtractTextWebpackPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: 'css-loader'
+                    fallbackLoader: "style-loader",
+                    loader: "css-loader"
                 })
             },
             {
                 test: /\.scss$/,
                 use: ExtractTextWebpackPlugin.extract({
-                    fallbackLoader: 'css-loader',
-                    loader: 'sass-loader'
+                    fallbackLoader: "style-loader",
+                    loader: ["css-loader", "sass-loader"]
                 })
-            }
+            },
         ]
     }
 };
