@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Scott's Bluetooth Device",
+    "id": 123521,
+    "owner": "Scott Jones",
+    "connected": false
+  },
+  {
+    "name": "Bob's Bluetooth Device",
+    "id": 54321,
+    "owner": "Bob Dole",
+    "connected": true
+  }
+]

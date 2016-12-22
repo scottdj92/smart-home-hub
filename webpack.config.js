@@ -28,7 +28,7 @@ const config = {
     ],
     resolve: {
         modules: ['node_modules'],
-        extensions: ['.css', '.js', '.jsx', '.scss']
+        extensions: ['.css', '.js', '.jsx', '.scss', '.json']
     },
     module: {
         rules: [
