@@ -7,7 +7,7 @@
   "author": "Scott Jones <scottdj92@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot --colors --inline",
+    "start": "webpack-dev-server --hot --colors --inline --show-error-details",
     "bundle": "webpack -d --show-error-details",
     "build": "webpack -p --progress"
   },

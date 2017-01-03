@@ -44,20 +44,20 @@ const config = {
                     loader: "css-loader"
                 })
             },
-            // {
-            //     test: /\.scss$/,
-            //     use: ExtractTextWebpackPlugin.extract({
-            //         fallbackLoader: "style-loader",
-            //         loader: "css-loader!sass-loader?sourceMap"
-            //     })
-            // },
             {
                 test: /\.scss$/,
-                use: 'sass-loader',
-                query: {
-                    sourceMaps: true
-                }
+                use: ExtractTextWebpackPlugin.extract({
+                    fallbackLoader: "style-loader",
+                    loader: "css-loader!sass-loader?sourceMap"
+                })
             }
+            // {
+            //     test: /\.scss$/,
+            //     use: 'sass-loader',
+            //     query: {
+            //         sourceMaps: true
+            //     }
+            // }
         ]
     }
 };
