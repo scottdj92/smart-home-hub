@@ -27,7 +27,7 @@ class Devices extends React.Component {
 
     createTableHeader() {
         return (
-            <div>
+            <div className='row'>
                 <div className='column'>
                     <h4>Device ID</h4>
                 </div>
@@ -46,7 +46,7 @@ class Devices extends React.Component {
 
     render () {
         return (
-            <div className='devices'>
+            <div className='devices container'>
                 <Nav/>
                 <h1>Device Status</h1>
                 {this.createTableHeader()}
