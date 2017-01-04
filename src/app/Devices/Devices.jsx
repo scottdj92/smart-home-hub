@@ -21,7 +21,7 @@ class Devices extends React.Component {
                     <span>{device.owner}</span>
                 </div>
                 <div className='column'>
-                    <span>{this.checkConnection(device.connected)}</span>
+                    <span>{this.checkConnection(device.connected, index)}</span>
                 </div>
             </div>
         )
@@ -46,13 +46,16 @@ class Devices extends React.Component {
         )
     }
 
-    checkConnection(status) {
-        console.log(status);
+    checkConnection(status, index) {
         if (status === true) {
             return (
-                <button className='button button-outline'>Disconnect</button>
+                <button className='button button-clear' onClick={() => this.disconnectDevice(index)}>Disconnect</button>
             );
         }
+    }
+
+    disconnectDevice(device) {
+        console.log('device #' + device + ' has been disconnected');
     }
 
     render () {

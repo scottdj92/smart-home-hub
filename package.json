@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --env development",
     "bundle": "webpack -d --show-error-details --env production",
-    "build": "webpack -p --progress"
+    "build": "webpack -p --progress --env production"
   },
   "dependencies": {
     "bleno": "^0.4.1",
