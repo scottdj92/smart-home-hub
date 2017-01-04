@@ -8,7 +8,8 @@ class App extends React.Component {
         return (
             <div className='container'>
                 <Nav/>
-                <h1>Hello World!</h1>
+                <h1>Welcome to the Smart Home Hub.</h1>
+                <h4>Your Status</h4>
             </div>
         )
     }

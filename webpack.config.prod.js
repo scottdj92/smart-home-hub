@@ -12,7 +12,13 @@ const PATHS = {
 const prod = merge(
     {
         context: PATHS.app,
-        filename: 'bundle.js',
+        entry: {
+            app: PATHS.app + '/index.jsx'
+        },
+        output: {
+            path: PATHS.build,
+            filename: 'bundle.js'
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 template: 'index.html'
@@ -41,10 +47,7 @@ const prod = merge(
                 },
                 {
                     test: /\.scss$/,
-                    use: ExtractTextWebpackPlugin.extract({
-                        fallbackLoader: 'style-loader',
-                        loader: 'sass-loader?sourceMap'
-                    })
+                    use: ['style-loader', 'css-loader', 'sass-loader']
                 }
             ]
         }

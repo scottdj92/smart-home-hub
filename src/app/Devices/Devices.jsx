@@ -4,6 +4,8 @@ import Nav from '../../app/Nav/Nav';
 
 import testDevices from './fixtures/sample-devices';
 
+import './_devices.scss';
+
 class Devices extends React.Component {
 
     showDeviceStatus(device, index) {
@@ -19,7 +21,7 @@ class Devices extends React.Component {
                     <span>{device.owner}</span>
                 </div>
                 <div className='column'>
-                    <span>{device.connected}</span>
+                    <span>{this.checkConnection(device.connected)}</span>
                 </div>
             </div>
         )
@@ -42,6 +44,15 @@ class Devices extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    checkConnection(status) {
+        console.log(status);
+        if (status === true) {
+            return (
+                <button className='button button-outline'>Disconnect</button>
+            );
+        }
     }
 
     render () {

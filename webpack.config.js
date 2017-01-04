@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 
 const prod = require('./webpack.config.prod');
+const parts = require('./webpack.parts');
 
 const PATHS = {
     app: path.resolve(__dirname, 'src'),
@@ -52,8 +53,23 @@ const common = merge(
 
 module.exports = function(env) {
     if (env === 'development') {
-        return merge(common);
+        return merge(
+            common,
+            {
+                performance: {
+                    hints: false
+                }
+            },
+            parts.devServer({
+                host: process.env.HOST,
+                port: process.env.PORT
+            }),
+            parts.purifyCSS(PATHS.app)
+        );
     } else {
-        return merge(prod);
+        return merge(
+            prod,
+            parts.purifyCSS(PATHS.app)
+        );
     }
 };
