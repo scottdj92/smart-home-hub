@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import Nav from '../../app/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 
 import testDevices from './fixtures/sample-devices';
 

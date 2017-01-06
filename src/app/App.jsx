@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Nav from './Nav/Nav';
+import Nav from './components/Nav/Nav';
 
 import './_main.scss';
 
