@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 
 //import redux
 import { Provider } from 'react-redux';
-import store from './store/configureStore';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 
 import App from './app/App';
 import Devices from './app/components/Devices/Devices';
