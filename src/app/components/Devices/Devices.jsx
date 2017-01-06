@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
 
@@ -64,6 +65,7 @@ class Devices extends React.Component {
                 <Nav/>
                 <h1>Device Status</h1>
                 {this.createTableHeader()}
+                {console.log(this.props)}
                 {testDevices.map( (data, index) => this.showDeviceStatus(data, index) )}
             </div>
         )
