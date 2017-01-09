@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Nav from '../../components/Nav/Nav';
-
 import testDevices from './fixtures/sample-devices';
 
 import './_devices.scss';
@@ -62,7 +60,6 @@ class Devices extends React.Component {
     render () {
         return (
             <div className='devices container'>
-                <Nav/>
                 <h1>Device Status</h1>
                 {this.createTableHeader()}
                 {console.log(this.props)}
