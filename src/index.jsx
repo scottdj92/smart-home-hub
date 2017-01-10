@@ -9,7 +9,10 @@ import configureStore from './store/configureStore';
 //import react-router-redux to sync store with hashHistory
 import { syncHistoryWithStore } from 'react-router-redux';
 
-const store = configureStore();
+//import test data
+import sampleData from './app/components/Devices/fixtures/sample-devices.json';
+
+const store = configureStore({});
 
 const history = syncHistoryWithStore(browserHistory, store);
 

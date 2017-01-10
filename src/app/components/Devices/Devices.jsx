@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import testDevices from './fixtures/sample-devices';
-
 import './_devices.scss';
 
 class Devices extends React.Component {
@@ -58,12 +56,12 @@ class Devices extends React.Component {
     }
 
     render () {
+        console.log('devices', this);
         return (
             <div className='devices container'>
                 <h1>Device Status</h1>
                 {this.createTableHeader()}
-                {console.log(this.props)}
-                {testDevices.map( (data, index) => this.showDeviceStatus(data, index) )}
+                {/* {this.props.devices.map( (data, index) => this.showDeviceStatus(data, index) )} */}
             </div>
         )
     }

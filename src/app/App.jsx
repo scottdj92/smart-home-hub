@@ -7,6 +7,7 @@ import './_main.scss';
 
 class App extends React.Component {
     render () {
+        console.log('app', this);
         return (
             <div className='container'>
                 <Nav/>
@@ -14,12 +15,12 @@ class App extends React.Component {
             </div>
         )
     }
-
-    mapStateToProps(state) {
-        return {
-            devices: state.devices
-        };
-    }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        devices: state.devices
+    };
+}
+
+export default connect(mapStateToProps)(App);
