@@ -57,7 +57,7 @@ module.exports = function(env) {
             common,
             {
                 performance: {
-                    hints: true
+                    hints: "warning"
                 }
             },
             parts.devServer({
